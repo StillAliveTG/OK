@@ -36,13 +36,13 @@ async def save_data(id, channel, message_id, methord, caption, file_type):
         )
     except ValidationError:
         print('Error occurred while saving file in database')
-        try:
-            print("Messsage saved in DB")
-try:
+    try:
         await data.commit()
     except DuplicateKeyError:
         print("Already saved in Database")
     else:
+        try:
+            print("Messsage saved in DB")
         except:
             pass
 
@@ -53,4 +53,3 @@ async def get_search_results():
     cursor.skip(0).limit(1)
     Messages = await cursor.to_list(length=1)
     return Messages
-
