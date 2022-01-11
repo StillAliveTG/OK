@@ -53,3 +53,4 @@ async def get_search_results():
     cursor.skip(0).limit(1)
     Messages = await cursor.to_list(length=1)
     return Messages
+
